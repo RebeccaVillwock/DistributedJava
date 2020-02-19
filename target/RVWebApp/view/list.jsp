@@ -31,6 +31,11 @@
 </ul>
 
 <button>New Mini</button>
+    <form method="get" action="search">
+        Search for mini <input type="text" name="miniName">
+        <input type="submot" value="Search">
+    </form>
+
 
 </div>
 </body>
