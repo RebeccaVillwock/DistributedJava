@@ -18,6 +18,7 @@
     <ul>
         <li><a href="index.jsp">Home</a></li>
         <li><a href="list.jsp">Catalog</a></li>
+        <li><a href="detail.jsp">Details</a></li>
         <li><a href="login.jsp">Login</a></li>
     </ul>
 </nav>

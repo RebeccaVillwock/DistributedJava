@@ -4,15 +4,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 
 @WebServlet(name = "SearchServlet", urlPatterns = "/search")
 public class SearchServlet extends HttpServlet {
     private final String DRIVER_NAME = "jdbc:derby";
-    private final String DATABASE_PATH = "../../db";
+    private final String DATABASE_PATH = "..\\..\\db";
     private final String SCHEMA = "rebecca";
     private final String PASSWORD = "rebecca";
 
@@ -37,6 +34,7 @@ public class SearchServlet extends HttpServlet {
             //build string
             StringBuilder sql = new StringBuilder("select name, description");
             sql.append("from minis");
+            sql.append("where species_nm = ?");
 
             //create connection
             conn = DriverManager.getConnection(DRIVER_NAME + absPath, SCHEMA, PASSWORD);
@@ -83,8 +81,32 @@ public class SearchServlet extends HttpServlet {
 
 
 
-        }catch(Exception e){
-
+        }catch(SQLException | ClassNotFoundException e){
+            // If there's an exception locating the driver, send IT as the response
+            response.getWriter().print(e.getMessage());
+            e.printStackTrace();
+        }finally {
+            if (rset != null) {
+                try {
+                    rset.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (pstmt != null) {
+                try {
+                    pstmt.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

@@ -17,6 +17,7 @@
 <nav>
     <ul>
         <li><a href="index.jsp">Home</a></li>
+        <li><a href="detail.jsp">Details</a></li>
         <li><a href="list.jsp">Catalog</a></li>
         <li><a href="login.jsp">Login</a></li>
     </ul>
@@ -31,9 +32,9 @@
 </ul>
 
 <button>New Mini</button>
-    <form method="get" action="search">
+    <form method="get" action="../search">
         Search for mini <input type="text" name="miniName">
-        <input type="submot" value="Search">
+        <input type="submit" value="search">
     </form>
 
 
