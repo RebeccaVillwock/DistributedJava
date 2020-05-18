@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: becky
@@ -15,17 +16,17 @@
 <div id="wrapper">
 <nav>
     <ul>
-        <li><a href="index.jsp">Home</a></li>
-        <li><a href="detail.jsp">Details</a></li>
-        <li><a href="list.jsp">Catalog</a></li>
-        <li><a href="login.jsp">Login</a></li>
+        <li><a href="<c:url value="/"/>">Home</a></li>
+        <li><a href="<c:url value="miniForm"/>">Catalog</a></li>
+        <li><a href="<c:url value="detail"/>">Details</a></li>
+        <li><a href="<c:url value="login"/>">Login</a></li>
     </ul>
 </nav>
 
 <h1>Moldy Minis</h1>
 
 <form>
-    <label>Name: <input type="text" value="Item Image's name"/></label>
+    <label>Name: <input type="text"value="Item Image's name"/></label>
     <label>Price: <input type="text" value ="$8.00"/></label>
     <label>Category: <input type="text" value="beast"/></label>
     <input type="submit" value="save"/>

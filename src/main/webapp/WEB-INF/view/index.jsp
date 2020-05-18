@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: becky
@@ -16,10 +17,10 @@
 <div id="wrapper">
 <nav>
     <ul>
-        <li><a href="index.jsp">Home</a></li>
-        <li><a href="list.jsp">Catalog</a></li>
-        <li><a href="detail.jsp">Details</a></li>
-        <li><a href="login.jsp">Login</a></li>
+        <li><a href="<c:url value="/"/>">Home</a></li>
+        <li><a href="<c:url value="miniForm"/>">Catalog</a></li>
+        <li><a href="<c:url value="detail"/>">Details</a></li>
+        <li><a href="<c:url value="login"/>">Login</a></li>
     </ul>
 </nav>
 

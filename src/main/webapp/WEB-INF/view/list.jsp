@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%--
   Created by IntelliJ IDEA.
   User: becky
@@ -12,14 +14,15 @@
     <title>Catalog</title>
 </head>
 <body>
+<c:url value="/desiredMini" var="actionURL"/>
 <div id="wrapper">
 
 <nav>
     <ul>
-        <li><a href="index.jsp">Home</a></li>
-        <li><a href="detail.jsp">Details</a></li>
-        <li><a href="list.jsp">Catalog</a></li>
-        <li><a href="login.jsp">Login</a></li>
+        <li><a href="<c:url value="/"/>">Home</a></li>
+        <li><a href="<c:url value="miniForm"/>">Catalog</a></li>
+        <li><a href="<c:url value="detail"/>">Details</a></li>
+        <li><a href="<c:url value="login"/>">Login</a></li>
     </ul>
 </nav>
 
@@ -32,10 +35,10 @@
 </ul>
 
 <button>New Mini</button>
-    <form method="get" action="../search">
-        Search for mini <input type="text" name="miniName">
+    <form:form action="${actionURL}" modelAttribute="bindingMini">
+        Search for mini <form:input path="miniName"/>
         <input type="submit" value="search">
-    </form>
+    </form:form>
 
 
 </div>
