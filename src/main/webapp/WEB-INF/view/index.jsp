@@ -18,15 +18,15 @@
 <nav>
     <ul>
         <li><a href="<c:url value="/"/>">Home</a></li>
-        <li><a href="<c:url value="miniForm"/>">Catalog</a></li>
-        <li><a href="<c:url value="detail"/>">Details</a></li>
-        <li><a href="<c:url value="login"/>">Login</a></li>
+        <li><a href="<c:url value="mini/list"/>">Catalog</a></li>
+        <li><a href="<c:url value="mini/detail"/>">Details</a></li>
+        <li><a href="<c:url value="mini/login"/>">Login</a></li>
     </ul>
 </nav>
 
 <h1>Moldy Minis</h1>
 <img src="../resources/img/Moldy-Minis-Logo.jpg">
-<a>Browse Minis</a>
+<p>Search through the catalog and find a mini that brings you joy.</p>
 
 </div>
 </body>

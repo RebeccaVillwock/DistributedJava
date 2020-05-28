@@ -24,7 +24,7 @@ public class Mini {
     @JoinColumn(name="category_id")
     private Category category;
 
-    @OneToOne(mappedBy = "mini", cascade = {CascadeType.DETACH, CascadeType.MERGE,CascadeType.PERSIST, CascadeType.REFRESH})
+    @OneToOne(mappedBy = "mini", cascade = CascadeType.ALL)
     private MiniDescription miniDescription;
 
     public Mini(){}

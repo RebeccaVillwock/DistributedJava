@@ -17,9 +17,9 @@
 <nav>
     <ul>
         <li><a href="<c:url value="/"/>">Home</a></li>
-        <li><a href="<c:url value="miniForm"/>">Catalog</a></li>
-        <li><a href="<c:url value="detail"/>">Details</a></li>
-        <li><a href="<c:url value="login"/>">Login</a></li>
+        <li><a href="<c:url value="mini/list"/>">Catalog</a></li>
+        <li><a href="<c:url value="mini/detail"/>">Details</a></li>
+        <li><a href="<c:url value="mini/login"/>">Login</a></li>
     </ul>
 </nav>
 

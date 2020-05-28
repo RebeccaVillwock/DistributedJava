@@ -25,5 +25,13 @@
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+    <!-- Show my error page-->
+
+    <!--
+    <error-page>
+        <location>/errors</location>
+    </error-page>
+    -->
 </web-app>
 
