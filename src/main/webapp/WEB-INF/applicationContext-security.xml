@@ -4,10 +4,15 @@
        xmlns:security="http://www.springframework.org/schema/security"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd
-                           http://www.springframework.org/schema/security">
+                           http://www.springframework.org/schema/security
+                           http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <!-- Bean for bcrypt password encoding -->
+    <bean id="bcryptEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
 
     <security:http use-expressions="true">
         <security:intercept-url pattern="/mini/user/**" access="hasRoles('USER')"/>
+        <security:intercept-url pattern="/mini/admin/**" access="hasRole('ADMIN')"/>
 
         <security:form-login
         login-page="/showLoginForm"
@@ -22,10 +27,12 @@
 
     <security:authentication-manager>
         <security:authentication-provider>
-            <security:user-service>
-                <security:user name="gigi" password="p" authorities="USER"/>
-                <security:user name="stacy" password="p" authorities="USER, ADMIN"/>
-            </security:user-service>
+            <!--<security:user-service>
+                  <security:user name="gigi" password="p" authorities="USER"/>
+                  <security:user name="stacy" password="p" authorities="USER,ADMIN"/>
+              </security:user-service>-->
+            <security:jdbc-user-service data-source-ref="myDataSource"/>
+            <security:password-encoder ref="bcryptEncoder"/>
         </security:authentication-provider>
     </security:authentication-manager>
 </beans>
