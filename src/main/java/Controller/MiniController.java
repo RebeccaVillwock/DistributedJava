@@ -38,6 +38,7 @@ public class MiniController {
          return "list";
      }
 
+     @RequestMapping("/search")
      public String search(@RequestParam("searchTerm") String searchTerm,
                           Model theModel){
         List<Mini> matchingMinis = miniService.getMinisByName(searchTerm);
@@ -59,7 +60,7 @@ public class MiniController {
         return "mini-form";
      }
 
-     @GetMapping("/showAddMiniForm")
+     @GetMapping("/user/showAddMiniForm")
      public String showAddMiniForm(Model theModel){
         Mini theMini = new Mini();
 
@@ -86,6 +87,7 @@ public class MiniController {
         return "redirect:/mini/list";
      }
 
+     @GetMapping("/delete")
      public String deleteMini(@RequestParam("miniId") int theId){
         miniService.deleteMini(theId);
 

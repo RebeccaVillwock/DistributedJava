@@ -29,7 +29,10 @@
 
 <h1>Moldy Minis</h1>
 
-    <button class="add-button" onclick="window.location.href='${cp}/mini/showAddMiniForm'">Add Mini</button>
+    <security:authorize access="hasRole('USER')">
+
+    </security:authorize>
+    <button class="add-button" onclick="window.location.href='${cp}/mini/user/showAddMiniForm'">Add Mini</button>
 
     <form:form action="search" method="GET">
         Search Minis

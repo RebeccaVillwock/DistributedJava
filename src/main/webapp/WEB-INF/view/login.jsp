@@ -1,4 +1,5 @@
-<%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: becky
@@ -7,6 +8,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<c:set var="cp" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
     <link rel="stylesheet" href="../resources/css/style.css">
@@ -26,17 +28,26 @@
 
 <h1>Moldy Minis</h1>
 
-<form>
-    <label>
-        Username: <input type="text" placeholder="rvillwock"/>
-    </label>
-
-    <label>
-        Password: <input type="password" placeholder="********"/>
-    </label>
-
-    <input type="submit" placeholder="Login"/>
-</form>
+    <form:form action="${cp}/authenticate" method="post">
+        <table>
+            <tr>
+                <td><label>Username</label></td>
+                <td><input type="text" name="username"></td>
+            </tr>
+            <tr>
+                <td><label>Password</label></td>
+                <td><input type="password" name="password"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Login"></td>
+            </tr>
+            <c:if test="${param.error != null}">
+                <td></td>
+                <td class="error"> Invalid login</td>
+            </c:if>
+        </table>
+    </form:form>
 
 </div>
 </body>

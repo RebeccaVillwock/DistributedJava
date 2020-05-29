@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/security">
+
+    <security:http use-expressions="true">
+        <security:intercept-url pattern="/mini/user/**" access="hasRoles('USER')"/>
+
+        <security:form-login
+        login-page="/showLoginForm"
+        login-processing-url="/authentication"
+        authentication-failure-url="/showLoginForm?error=true"
+        username-parameter="username"
+        password-parameter="password"
+        default-target-url="/mini/list"/>
+        <security:logout logout-url="/logout"
+                         logout-success-url="/showLoginForm"/>
+    </security:http>
+
+    <security:authentication-manager>
+        <security:authentication-provider>
+            <security:user-service>
+                <security:user name="gigi" password="p" authorities="USER"/>
+                <security:user name="stacy" password="p" authorities="USER, ADMIN"/>
+            </security:user-service>
+        </security:authentication-provider>
+    </security:authentication-manager>
+</beans>
